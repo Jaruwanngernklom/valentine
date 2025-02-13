@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เค้าเขินแล้วนะ ☺️</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6f0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #ff3366;
+            font-size: 36px;
+        }
+        .emoji {
+            font-size: 50px;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+            background-size: cover;
+            animation: floatUp 3s linear infinite;
+        }
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>พอและเค้าเขิน ☺️</h2>
+    <h1>💖Happy Valentine's Day ❤️</h1>
+    <h3>รักอ้วนนะ❤️</h3>
+    <p class="emoji">🥰💕</p>
+    <script>
+        function createHeart() {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.bottom = "0px";
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>

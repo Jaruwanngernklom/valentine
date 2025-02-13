@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOVE</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            flex-direction: column;
+            text-align: center;
+        }
+        h1 {
+            color: #ff3366;
+        }
+        .message {
+            font-size: 24px;
+            color: #ff3366;
+            margin-top: 20px;
+        }
+        video {
+            width: 80%;
+            max-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1> LOVE 💕</h1>
+    <video controls>
+        <source src="meyou.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p class="message" id="loveMessage"></p>
+    <button id="nextPageBtn" class="btn" onclick="goToNextPage()">Next</button>
+    <script>
+    function goToNextPage() {
+        window.location.href = "final.html"; // เปลี่ยนเป็น URL ของหน้าถัดไป
+    }
+    </script>
+</body>
+</html>

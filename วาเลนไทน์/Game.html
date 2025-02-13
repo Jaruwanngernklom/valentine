@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เกมทดสอบรัก 💕</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            text-align: center;
+        }
+        h1 {
+            color: #ff3366;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            transition: 0.3s;
+        }
+        .yes {
+            background: #ff66b2;
+        }
+        .yes:hover {
+            background: #ff3385;
+        }
+        .no {
+            background: #999;
+            position: absolute;
+        }
+        #nextPageBtn {
+            display: none;
+            background: #66c2ff;
+        }
+        #nextPageBtn:hover {
+            background: #ff3385;
+        }
+    </style>
+</head>
+<body>
+    <h1>รักเค้ามั้ย? 😘</h1>
+    <button class="btn yes" onclick="showLoveMessage()">รัก 💖</button>
+    <button class="btn no" onmouseover="moveNoButton()">ไม่รัก 😭</button>
+    <p id="loveMessage" style="font-size: 24px; color: #ff3366; margin-top: 20px;"></p>
+    <button id="nextPageBtn" class="btn" onclick="goToNextPage()">Next >></button>
+    <script>
+        function showLoveMessage() {
+            document.getElementById("loveMessage").innerText = "เย้! เค้าก็รักเธอที่สุดเลย 💕";
+            document.getElementById("nextPageBtn").style.display = "block";
+        }
+        function moveNoButton() {
+            let button = document.querySelector(".no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            button.style.left = x + "px";
+            button.style.top = y + "px";
+        }
+        
+        function goToNextPage() {
+            window.location.href = "video.html"; // เปลี่ยนเป็น URL ของหน้าถัดไป
+        }
+    </script>
+</body>
+</html>
