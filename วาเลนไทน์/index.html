@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day 💖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            transition: background 0.5s;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            color: #ff3366;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background: #ff66b2;
+            color: white;
+        }
+        .btn:hover {
+            background: #ff3385;
+        }
+        .message {
+            font-size: 24px;
+            color: #ff3366;
+            margin-top: 20px;
+        }
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+            animation: floatUp 4s linear;
+        }
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-10vh);
+                opacity: 1;
+                filter: brightness(0.7);
+            }
+        }
+        #nextPageBtn {
+            display: none;
+            margin-top: 20px;
+            background: #ff4444;
+        }
+        #nextPageBtn:hover {
+            background: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💖Happy Valentine's Day ❤️</h1> 
+        <button class="btn" onclick="startHeartAnimation()">คลิกๆเร็วแล้วหัวใจของเค้าจะลอยมา 💖</button>
+        <button class="btn" onclick="showLoveMessage(); startHeartAnimation();">คลิกเพื่อรับความรักจากเค้าเล้ย 💕</button>
+        
+        <p class="message" id="loveMessage"></p>
+        <button id="nextPageBtn" class="btn" onclick="goToNextPage()">Next</button>
+    </div>
+    
+    <script>
+       let messageIndex = 0;
+       const messages = [
+           "เค้ารักเธอ 💖", "เธอคือคนพิเศษ 💕", "ขอบคุณที่อยู่ด้วยกันนะอ้วน 😘",
+           "เธอทำให้ทุกวันเป็นวันพิเศษ 🌹", "ขอบคุณที่เปลี่ยนแปลงให้ทุกอย่างดีขึ้น 💖",
+           "ขอบคุณที่พยายามเพื่อกันและกัน 💕", "ขอบคุณที่จะไม่ทำให้เค้าเสียใจอีก 😘",
+           "เค้าเองก็ขอโทษนะสำหรับทุกเรื่อง 🌹", "ขอโทษที่บางทีทำตัวไม่น่ารัก พูดจาไม่ดี",
+           "เค้าจะพูดดีๆกับอ้วน 💖", "รักอ้วน 😘"
+       ];
+       
+       function showLoveMessage() {
+           document.getElementById("loveMessage").innerText = messages[messageIndex];
+           messageIndex++;
+           if (messageIndex === messages.length) {
+               document.getElementById("nextPageBtn").style.display = "inline-block";
+           }
+       }
 
+       function createHeart() {
+           let heart = document.createElement("div");
+           heart.className = "heart";
+           heart.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/833/833472.png')";
+           heart.style.left = Math.random() * window.innerWidth + "px";
+           heart.style.bottom = "0px";
+           heart.style.width = heart.style.height = Math.random() * 30 + 20 + "px";
+           document.body.appendChild(heart);
+           
+           let animationDuration = Math.random() * 3 + 3;
+           heart.style.animation = `floatUp ${animationDuration}s linear forwards`;
+           
+           setTimeout(() => { heart.remove(); }, animationDuration * 1000);
+       }
+
+       function startHeartAnimation() {
+           setInterval(createHeart, 500);
+       }
+       
+       function goToNextPage() {
+           window.location.href = "nextpage.html"; // เปลี่ยนเป็น URL ของหน้าถัดไป
+       }
+    </script>
+</body>
+</html>
